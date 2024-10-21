@@ -1,17 +1,20 @@
 import "./global.css";
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "@/pages/Home";
+import Settings from "@/pages/Settings";
+import AddTask from "@/pages/AddTask";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-  return (
-    <GluestackUIProvider mode="light">
-      <View className="flex-1 bg-primary-500 items-center justify-center">
-        <Text className="text-typography-100">
-          Open up App.tsx to start working on your app!
-        </Text>
-        <StatusBar style="auto" />
-      </View>
-    </GluestackUIProvider>
+  return (        
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Index">
+        <Stack.Screen name="Minhas Tarefas" component={Home}/>
+        {/* <Stack.Screen name="Configurações" component={Settings}/>         */}
+        <Stack.Screen name="Adicionar Tarefa" component={AddTask}/>        
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
