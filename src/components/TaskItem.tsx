@@ -23,9 +23,7 @@ export default function TaskItem(props: {
     }
 
     return (
-        // <Pressable onPress={() => { console.log("mark as done") }}>
-
-
+        
         <View
             className={props.task.done
                 ? 'w-full border-[0.5px] border-neutral-500 rounded p-3 flex flex-row justify-between items-center bg-blue-500'
