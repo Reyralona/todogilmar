@@ -47,6 +47,7 @@ export const addTask = async (title: string) => {
     }
     taskObject.push({ id: taskObject.length + 1, title: title, done: false })
     storeData('tasks', taskObject)
+    return taskObject
 }
 
 export const completeTask = async (id: number) => {
@@ -57,6 +58,7 @@ export const completeTask = async (id: number) => {
         }
     })
     storeData('tasks', taskObject)
+    return taskObject
 }
 
 export const deleteTask = async (id: number) => {
@@ -67,10 +69,10 @@ export const deleteTask = async (id: number) => {
         }
     })
     storeData('tasks', taskObject)
+    return taskObject
 }
 
 export const getTasks = async () => {
     const tasks = await getData('tasks')
-    console.log(tasks)
     return tasks
 }
